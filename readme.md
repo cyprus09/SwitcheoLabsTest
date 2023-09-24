@@ -42,6 +42,7 @@ This repository contains solutions to the following problems as part of the Swit
 
 #### Solution
 
+The example sets up the basic structure of a currency swap form, including input fields for the input amount and output amount. It also includes a simple JavaScript logic for calculating the output amount based on predefined token prices and updating the output amount when the input amount changes. Will need help to put in more functionalities.
 
 ### Problem 3: Messy React
 
