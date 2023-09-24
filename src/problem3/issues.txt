@@ -1,0 +1,16 @@
+These were quite a few computational inefficiencies and anti-patterns found in the code block given as part of the problem which I have listed as follows:
+
+Missing Implementation of Datasource: 
+    The code provided is incomplete as it lacks the implementation of the Datasource class. You need to implement this class to fetch prices, as indicated by the comment 
+
+Inefficient Sorting in useMemo: 
+    The original code sorts the balances array on each re-render, even if balances haven't changed. In the updated code, the sorting is optimized by using the useMemo hook with a dependency array that includes only balances and prices, ensuring that sorting only occurs when these dependencies change.
+
+Mapping Arrays Separately: 
+    The original code separately mapped sortedBalances and formattedBalances arrays, resulting in unnecessary array iterations. In the updated code, the mapping operation is optimized by formatting balances and calculating usdValue directly within the map function, eliminating the need for an extra array (formattedBalances).
+
+Inefficient useEffect Dependencies: 
+    In the original code, the useEffect hook had no dependency array, causing it to run on every render. In the updated code, the useEffect hook fetches prices only once when the component mounts by using an empty dependency array ([]).
+
+Error Handling: 
+    In the original code, there was an error in the error handling code where console.err was used instead of console.error. This issue was fixed in the updated code.

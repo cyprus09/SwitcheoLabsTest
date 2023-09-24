@@ -1,0 +1,111 @@
+import React, { useEffect, useMemo, useState } from 'react';
+
+// Define the WalletBalance and FormattedWalletBalance interfaces
+interface WalletBalance {
+  currency: string;
+  amount: number;
+  blockchain: string;
+}
+
+interface FormattedWalletBalance extends WalletBalance {
+  formatted: string;
+  usdValue: number;
+}
+
+// Define the Datasource class (you need to implement this)
+class Datasource {
+  constructor(private url: string) {}
+
+  async getPrices() {
+    try {
+      const response = await fetch(this.url);
+      if (!response.ok) {
+        throw new Error('Failed to fetch prices');
+      }
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      throw error;
+    }
+  }
+}
+
+// Define the WalletRow component (you need to implement this)
+const WalletRow: React.FC<FormattedWalletBalance> = ({
+  formattedAmount,
+  usdValue,
+}) => {
+  return (
+    <div>
+      <div>Amount: {formattedAmount}</div>
+      <div>USD Value: {usdValue}</div>
+    </div>
+  );
+};
+
+const WalletPage: React.FC = () => {
+  const balances: WalletBalance[] = useWalletBalances();
+  const [prices, setPrices] = useState<Record<string, number>>({});
+
+  useEffect(() => {
+    const datasource = new Datasource("https://interview.switcheo.com/prices.json");
+    datasource.getPrices()
+      .then((prices) => {
+        setPrices(prices);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, [balances]);
+
+  const getPriority = (blockchain: string): number => {
+    switch (blockchain) {
+      case 'Osmosis':
+        return 100;
+      case 'Ethereum':
+        return 50;
+      case 'Arbitrum':
+        return 30;
+      case 'Zilliqa':
+      case 'Neo': // Combine Neo and Zilliqa with the same priority
+        return 20;
+      default:
+        return -99;
+    }
+  };
+
+  //edited sortedBalances useMemo function and removed formattedBalances
+  const sortedBalances = useMemo(() => {
+    return balances.filter((balance: WalletBalance) => {
+        const balancePriority = getPriority(balance.blockchain);
+        return balancePriority > -99 && balance.amount > 0;
+      })
+      .sort((lhs: WalletBalance, rhs: WalletBalance) => {
+        const leftPriority = getPriority(lhs.blockchain);
+        const rightPriority = getPriority(rhs.blockchain);
+        return rightPriority - leftPriority; // Sort in descending order
+      })
+      .map((balance: WalletBalance) => {
+        const usdValue = prices[balance.currency] * balance.amount;
+        return {
+          ...balance,
+          formatted: balance.amount.toFixed(),
+          usdValue,
+        };
+      });
+  }, [balances, prices]);
+
+  return (
+    <div>
+      {sortedBalances.map((balance: FormattedWalletBalance, index: number) => (
+        <WalletRow
+          key={balance.currency} // Use a unique identifier as key
+          formattedAmount={balance.formatted}
+          usdValue={balance.usdValue}
+        />
+      ))}
+    </div>
+  );
+};
+
+export default WalletPage;
