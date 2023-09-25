@@ -30,8 +30,13 @@ class Datasource {
   }
 }
 
+//edit this
+interface Props extends BoxProps {
+  const prop : string;
+}
+
 // Define the WalletRow component (you need to implement this)
-const WalletRow: React.FC<FormattedWalletBalance> = ({
+const WalletRow: React.FC<Props> = ({
   formattedAmount,
   usdValue,
 }) => {
@@ -43,21 +48,20 @@ const WalletRow: React.FC<FormattedWalletBalance> = ({
   );
 };
 
-const WalletPage: React.FC = () => {
+const WalletPage: React.FC<Props> = (props: Props) => {
   const balances: WalletBalance[] = useWalletBalances();
   const [prices, setPrices] = useState<Record<string, number>>({});
 
   useEffect(() => {
     const datasource = new Datasource("https://interview.switcheo.com/prices.json");
-    datasource.getPrices()
-      .then((prices) => {
+    datasource.getPrices().then((prices) => {
         setPrices(prices);
-      })
-      .catch((error) => {
+      }).catch((error) => {
         console.error(error);
       });
-  }, [balances]);
+  }, [balances]); //changed state only dependent on balances 
 
+  //using any datatype is usually not a good practice 
   const getPriority = (blockchain: string): number => {
     switch (blockchain) {
       case 'Osmosis':
@@ -78,7 +82,7 @@ const WalletPage: React.FC = () => {
   const sortedBalances = useMemo(() => {
     return balances.filter((balance: WalletBalance) => {
         const balancePriority = getPriority(balance.blockchain);
-        return balancePriority > -99 && balance.amount > 0;
+        return balancePriority > -99 && balance.amount > 0; //combined comparing logic
       })
       .sort((lhs: WalletBalance, rhs: WalletBalance) => {
         const leftPriority = getPriority(lhs.blockchain);
@@ -94,7 +98,7 @@ const WalletPage: React.FC = () => {
         };
       });
   }, [balances, prices]);
-
+  
   return (
     <div>
       {sortedBalances.map((balance: FormattedWalletBalance, index: number) => (
