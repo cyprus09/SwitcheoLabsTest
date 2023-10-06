@@ -5,23 +5,20 @@
   <title>Fancy Form</title>
 
   <!-- You may add more stuff here -->
-  <link href="style.css" rel="stylesheet" />
+  <link href="styles/style.css" rel="stylesheet">
+  <link href="styles/form.css" rel="stylesheet">
 </head>
 
 <body>
-
-  <!-- You may reorganise the whole HTML, as long as your form achieves the same effect. -->
+  <div class="gradient">
   <form onsubmit="return !1">
-    <h5>Swap</h5>
-    <label for="input-amount">Amount to send</label>
-    <input id="input-amount" />
-
-    <label for="output-amount">Amount to receive</label>
-    <input id="output-amount" />
-
-    <button>CONFIRM SWAP</button>
+    <div class="center-container">
+      <div class="border w-full h-40 flex items-center justify-center">
+        <a href="form.html" class="button">Swap</a>
+      </div>
+    </div>
   </form>
-  <script src="script.js"></script>
+</div>
 </body>
 
 </html>
