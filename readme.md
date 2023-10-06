@@ -9,40 +9,12 @@ This repository contains solutions to the following problems as part of the Swit
 
 2. **Problem 2: Fancy Form**
    - The Fancy Form problem's solution is implemented in this repository.
-   - [Provide a brief description of the Fancy Form problem and your solution here, if necessary.]
 
 3. **Problem 3: Messy React**
    - The Messy React problem's solution is implemented.
    - The details are covered in the issues.txt file
    - The .keep file has the new implemented solution
    - The originalPrompts.ts file is the code from the original prompt
-
-## Problem-Specific Details
-
-### Problem 1: Three Ways to Sum to N
-
-#### Solution
-
-- Three JavaScript functions (`sum_to_n_a`, `sum_to_n_b`, and `sum_to_n_c`) are provided in the code.
--    1. **Method - 1: Using a Loop**
-        - Time Complexity: O(n)
-        - Space Complexity: O(1)
-        - Implementation: This solution uses a loop to iterate from 1 to `n` and adds all the integers in the range.
-     2. **Method - 2: Using AP Formula for n Consecutive Integers**
-        - Time Complexity: O(1)
-        - Space Complexity: O(1)
-        - Implementation: This solution applies the arithmetic progression (AP) formula for the sum of n consecutive integers to calculate the sum.
-     3. **Method - 3: Recursive Approach**
-        - Time Complexity: O(n)
-        - Space Complexity: O(n)
-        - Implementation: This solution uses a recursive approach to calculate the sum by breaking it down into smaller subproblems.
-   - Each function is documented for clarity.
-
-### Problem 2: Fancy Form
-
-#### Solution
-
-The example sets up the basic structure of a currency swap form, including input fields for the input amount and output amount. It also includes a simple JavaScript logic for calculating the output amount based on predefined token prices and updating the output amount when the input amount changes. Will need help to put in more functionalities.
 
 ### Problem 3: Messy React
 

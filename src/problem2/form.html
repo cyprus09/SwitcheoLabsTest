@@ -8,23 +8,54 @@
 </head>
 <body>
     <div class="gradient">
-        <div class="login-box">
-        <h2>Swap Token</h2>
-        <form>
-          <div class="user-box">
-            <input type="text" name="" required="">
-            <label>Amount to Send</label>
-          </div>
-          <div class="user-box">
-            <input type="password" name="" required="">
-            <label>Amount to Receive</label>
-          </div>
-          <a href="#">
-            Confirm Swap
-          </a>
-        </form>
-      </div>
+        <div class="swap-box">
+            <h2>Swap Token</h2>
+            <form id="swap-form"> 
+                <div class="user-box">
+                    <input type="number" id="input-amount" name="" required="">
+                    <label>Amount to Send</label>
+                </div>
+                <div class="user-box">
+                    <input type="number" id="output-amount" name="" required="">
+                    <label>Amount to Receive</label>
+                </div>
+                <div class="user-box">
+                    <select id="input-currency"> 
+                      <option value="BUSD">BUSD</option>
+                      <option value="USD">USD</option>
+                      <option value="USD">ETH</option>
+                      <option value="USD">GMX</option>
+                      <option value="USD">LUNA</option>
+                      <option value="USD">STRD</option>
+                      <option value="USD">IRIS</option>
+                      <option value="USD">KUJI</option>
+                    </select>
+                    <label>Select Input Currency</label>
+                </div>
+                <div class="user-box">
+                    <select id="output-currency">
+                        <option value="BUSD">BUSD</option>
+                        <option value="USD">USD</option>
+                        <option value="USD">ETH</option>
+                        <option value="USD">GMX</option>
+                        <option value="USD">LUNA</option>
+                        <option value="USD">STRD</option>
+                        <option value="USD">IRIS</option>
+                        <option value="USD">KUJI</option>
+                    </select>
+                    <label>Select Output Currency</label>
+                </div>
+                <a href="#" id="confirm-button"> 
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Confirm
+                </a>
+            </form>
+        </div>
     </div>
-</div>
+
+    <script src="script.js"></script>
 </body>
 </html>

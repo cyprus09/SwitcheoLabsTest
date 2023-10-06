@@ -38,7 +38,7 @@ html {
     background: linear-gradient(#141e30, #243b55);
   }
   
-  .login-box {
+  .swap-box {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -51,52 +51,52 @@ html {
     border-radius: 10px;
   }
   
-  .login-box h2 {
+  .swap-box h2 {
     margin: 0 0 30px;
     padding: 0;
-    color: #fff;
+    color: #E2FCA4;
     text-align: center;
   }
   
-  .login-box .user-box {
+  .swap-box .user-box {
     position: relative;
   }
   
-  .login-box .user-box input {
+  .swap-box .user-box input {
     width: 100%;
     padding: 10px 0;
     font-size: 16px;
-    color: #fff;
+    color: #E2FCA4;
     margin-bottom: 30px;
     border: none;
     border-bottom: 1px solid #fff;
     outline: none;
     background: transparent;
   }
-  .login-box .user-box label {
+  .swap-box .user-box label {
     position: absolute;
     top:0;
     left: 0;
     padding: 10px 0;
     font-size: 16px;
-    color: #fff;
+    color: #E2FCA4;
     pointer-events: none;
     transition: .5s;
   }
   
-  .login-box .user-box input:focus ~ label,
-  .login-box .user-box input:valid ~ label {
+  .swap-box .user-box input:focus ~ label,
+  .swap-box .user-box input:valid ~ label {
     top: -20px;
     left: 0;
-    color: #03e9f4;
+    color: #1A3B4D;
     font-size: 12px;
   }
   
-  .login-box form a {
+  .swap-box form a {
     position: relative;
     display: inline-block;
     padding: 10px 20px;
-    color: #03e9f4;
+    color: #E2FCA4;
     font-size: 16px;
     text-decoration: none;
     text-transform: uppercase;
@@ -106,7 +106,7 @@ html {
     letter-spacing: 4px
   }
   
-  .login-box a:hover {
+  .swap-box a:hover {
     background: #03e9f4;
     color: #fff;
     border-radius: 5px;
@@ -116,17 +116,17 @@ html {
                 0 0 100px #03e9f4;
   }
   
-  .login-box a span {
+  .swap-box a span {
     position: absolute;
     display: block;
   }
   
-  .login-box a span:nth-child(1) {
+  .swap-box a span:nth-child(1) {
     top: 0;
     left: -100%;
     width: 100%;
     height: 2px;
-    background: linear-gradient(90deg, transparent, #03e9f4);
+    background: linear-gradient(90deg, transparent, #1A3B4D);
     animation: btn-anim1 1s linear infinite;
   }
   
@@ -139,12 +139,12 @@ html {
     }
   }
   
-  .login-box a span:nth-child(2) {
+  .swap-box a span:nth-child(2) {
     top: -100%;
     right: 0;
     width: 2px;
     height: 100%;
-    background: linear-gradient(180deg, transparent, #03e9f4);
+    background: linear-gradient(180deg, transparent, #1A3B4D);
     animation: btn-anim2 1s linear infinite;
     animation-delay: .25s
   }
@@ -158,12 +158,12 @@ html {
     }
   }
   
-  .login-box a span:nth-child(3) {
+  .swap-box a span:nth-child(3) {
     bottom: 0;
     right: -100%;
     width: 100%;
     height: 2px;
-    background: linear-gradient(270deg, transparent, #03e9f4);
+    background: linear-gradient(270deg, transparent, #1A3B4D);
     animation: btn-anim3 1s linear infinite;
     animation-delay: .5s
   }
@@ -177,15 +177,46 @@ html {
     }
   }
   
-  .login-box a span:nth-child(4) {
+  .swap-box a span:nth-child(4) {
     bottom: -100%;
     left: 0;
     width: 2px;
     height: 100%;
-    background: linear-gradient(360deg, transparent, #03e9f4);
+    background: linear-gradient(360deg, transparent, #1A3B4D);
     animation: btn-anim4 1s linear infinite;
     animation-delay: .75s
   }
+
+.user-box select {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #E2FCA4;
+  margin-bottom: 30px;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+.user-box select + label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #E2FCA4;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.user-box select:focus + label,
+.user-box select:valid + label {
+  top: -20px;
+  left: 0;
+  color: #1A3B4D;
+  font-size: 12px;
+}
+
   
   @keyframes btn-anim4 {
     0% {
