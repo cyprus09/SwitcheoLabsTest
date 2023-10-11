@@ -44,7 +44,7 @@ const WalletPage: React.FC<Props> = (props: Props) => {
         const data = await Datasource.getPrices("https://interview.switcheo.com/prices.json");
         setPrices(data);
       } catch (error) {
-        console.error(error);
+        console.error(error);   //wrongly spelt in original
       }
     };
     fetchData();
@@ -66,7 +66,7 @@ const WalletPage: React.FC<Props> = (props: Props) => {
   }, [balances]);
 
   const rows = sortedBalances.map((balance: FormattedWalletBalance, index: number) => {
-    const usdPrice = prices?.[balance.currency] || 0; // Handle missing price gracefully
+    const usdPrice = prices?.[balance.currency] || 0; // Handle missing price
     const usdValue = usdPrice * balance.amount;
     return (
       <WalletRow

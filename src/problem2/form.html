@@ -12,15 +12,15 @@
             <h2>Swap Token</h2>
             <form id="swap-form"> 
                 <div class="user-box">
-                    <input type="number" id="input-amount" name="" required="">
-                    <label>Amount to Send</label>
+                    <input type="number" id="input-amount" name="input-amount" required>
+                    <label for="input-amount">Amount to Send</label>
                 </div>
                 <div class="user-box">
-                    <input type="number" id="output-amount" name="" required="">
-                    <label>Amount to Receive</label>
+                    <input type="number" id="output-amount" name="output-amount" required="">
+                    <label for="output-amount">Amount to Receive</label>
                 </div>
                 <div class="user-box">
-                    <select id="input-currency"> 
+                    <select id="input-currency" name="input-currency"> 
                       <option value="BUSD">BUSD</option>
                       <option value="USD">USD</option>
                       <option value="USD">ETH</option>
@@ -30,10 +30,10 @@
                       <option value="USD">IRIS</option>
                       <option value="USD">KUJI</option>
                     </select>
-                    <label>Select Input Currency</label>
+                    <label for="input-currency">Select Input Currency</label>
                 </div>
                 <div class="user-box">
-                    <select id="output-currency">
+                    <select id="output-currency" name="output-currency">
                         <option value="BUSD">BUSD</option>
                         <option value="USD">USD</option>
                         <option value="USD">ETH</option>
@@ -43,7 +43,7 @@
                         <option value="USD">IRIS</option>
                         <option value="USD">KUJI</option>
                     </select>
-                    <label>Select Output Currency</label>
+                    <label for="output-currency">Select Output Currency</label>
                 </div>
                 <a href="#" id="confirm-button"> 
                     <span></span>

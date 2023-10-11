@@ -1,14 +1,36 @@
-These were quite a few computational inefficiencies and anti-patterns found in the code block given as part of the problem which I have listed as follows:
-.keep file is the updated code while the originalPrompt.ts file is the one given in the question
+Differences:
 
-Missing Implementation of Datasource: 
-    The code provided is incomplete as it lacks the implementation of the Datasource class. You need to implement this class to fetch prices, as indicated by the comment 
+Usage of useEffect:
 
-Mapping Arrays Separately and Changing of Sort Methods: 
-    The original code separately mapped sortedBalances and formattedBalances arrays, resulting in unnecessary array iterations. In the updated code, the mapping operation is optimized by formatting balances and calculating usdValue directly within the map function, eliminating the need for an extra array (formattedBalances).
+In the original version, a class named Datasource is used to fetch data from a URL.
+In the updated version, the fetch API is used directly inside the useEffect hook for data fetching.
+Handling Prices:
 
-Inefficient useEffect Dependencies: 
-    In the original code, the useEffect hook had no dependency array, causing it to run on every render. In the updated code, the useEffect hook fetches prices only once when the balances state changes ([balances]).
+In the original version, the prices fetched are stored in the prices state as an empty object (i.e., {}).
+In the updated version, the prices state is defined with a more specific type, which is an object with currency keys and number values. It's initially set as null.
+Sorting of Balances:
 
-Error Handling: 
-    In the original code, there was an error in the error handling code where console.err was used instead of console.error. This issue was fixed in the updated code.
+In the original version, the sorting of balances uses lhsPriority and has a condition related to a non-existing lhsPriority.
+In the updated version, the sorting of balances uses getPriority directly and ensures that only positive balances are included in the sorted array.
+Condition for Sorting:
+
+In the original version, the sorting condition is based on leftPriority > rightPriority and rightPriority > leftPriority.
+In the updated version, the sorting condition is simplified to rightPriority - leftPriority. This results in reverse sorting based on the priority values.
+prices Usage:
+
+In the original version, the USD price (usdPrice) is used directly without handling the case where the currency price might be missing from the prices object.
+In the updated version, the usdPrice is safely accessed with the ?. (optional chaining) operator, and a default value of 0 is provided in case the currency price is missing.
+Console Error Spelling:
+
+In the original version, the console error is misspelled as console.err. It should be console.error.
+In the updated version, the spelling is corrected as console.error.
+Type Annotations:
+
+The updated version provides more specific type annotations, especially for the prices state, making the code more type-safe.
+Imports:
+
+Both versions assume an import for WalletRow, but the updated version mentions this explicitly. However, it's not clear where BoxProps is imported from in either version.
+
+Logic Refinements:
+
+The updated version refines the logic to be more concise and easier to read.
