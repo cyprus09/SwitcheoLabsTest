@@ -1,4 +1,4 @@
-# Switcheo Code Challenge - Frontend
+# Code Challenge - Frontend
 
 This repository contains solutions to the following problems as part of the Switcheo Code Challenge for the Frontend development role:
 
